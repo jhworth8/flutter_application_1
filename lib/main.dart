@@ -226,7 +226,15 @@ void _onValueChanged(String? value) {
   }
 }
 
-
+  // New method to swap the units
+  void _swapUnits() {
+    setState(() {
+      String temp = _fromUnit;
+      _fromUnit = _toUnit;
+      _toUnit = temp;
+      _convert();
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -343,7 +351,7 @@ drawer: Drawer(
           ],
         ),
       ),
-      body: SingleChildScrollView( // Added SingleChildScrollView for better layout
+      body: SingleChildScrollView(
         padding: const EdgeInsets.all(20.0),
         child: Column(
           children: <Widget>[
@@ -352,6 +360,13 @@ drawer: Drawer(
               style: Theme.of(context).textTheme.headline6,
             ),
             SizedBox(height: 20.0),
+
+            // IconButton for swapping units
+            IconButton(
+              icon: Icon(Icons.swap_horiz),
+              onPressed: _swapUnits,
+              tooltip: 'Swap units',
+            ),
             DropdownButton<String>(
               value: _toUnit, // Swap _fromUnit and _toUnit
               items: _units[_selectedCategory]!.keys.map((String value) {
