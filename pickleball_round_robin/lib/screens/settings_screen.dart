@@ -74,7 +74,6 @@ class SettingsScreen extends StatelessWidget {
                   children: [
                     SwitchListTile(
                       title: const Text('Use round timer'),
-                      activeColor: AppColors.court,
                       value: rules.useTimer,
                       onChanged: (v) => apply(rules.copyWith(useTimer: v)),
                     ),

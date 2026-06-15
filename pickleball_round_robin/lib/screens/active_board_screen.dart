@@ -315,7 +315,6 @@ class _ManageSheetState extends State<_ManageSheet> {
                                 const TextStyle(fontWeight: FontWeight.w700)),
                         subtitle: Text('${p.byes} bye(s)'),
                         value: p.isActive,
-                        activeColor: AppColors.court,
                         onChanged: (_) =>
                             cubit.togglePlayerActiveInSession(p.id),
                       ),
